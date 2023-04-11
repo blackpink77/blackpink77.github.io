@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>reproductor de video</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> sistem segurity </title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav> <center> sistem segurity </center></nav>
+<div class="section1">
+<div class="section12">
+	<span ><img src="img/icon-configuracion.png" class="icon-configuracion"></span>
+	<span ><img src="img/icon-opciones.png" class="icon-opciones" onclick="mostrarOcultar()"> </span>
+</div>
+ <div  id="section123" style="display:none;">
+    <span class="section123-1" onclick="usuario()"><h2> usuario </h2> </span>
+	  <span class="section123-2" onclick="crear()"><h2> crear vinculo </h2> </span>
+		<span class="section123-3" onclick="almacenamiento()" ><h2> almacenamiento </h2> </span>
+    <span class="section123-4" onclick="inteligencia()"><h2> inteligencia(ia) </h2> </span>
+		<span class="section123-5" onclick="aplicacion()"><h2> aplicacion </h2> </span>
+		<span class="section123-6" onclick="programacion()"><h2> programacion </h2> </span>
+ </div>
+ <div id="section1234" style="display: none;">
+	 <span class="section123-1" onclick="video()"><h2> video </h2> </span>
+	 <span class="section123-2" onclick="fotos()"><h2> fotos </h2> </span>
+	 <span class="section123-3" onclick="pdf()" ><h2> pdf y otros</h2> </span>
+	 <span class="section123-4" onclick="audio()"><h2> audio </h2> </span>
+	 <span class="section123-5" onclick="cifrado()"><h2> cifrado </h2> </span>
+	 <span class="section123-6" onclick="ordenar()"><h2> ordenar </h2> </span>
+</div> <div id="texto1" style="display: none;">
+<textarea id="texto"></textarea>
+<button onclick="guardarTexto()">Guardar</button>
+<button onclick="recuperarTexto()">Recuperar</button>
+<button onclick="borrarTexto()">Borrar texto</button>
+<textarea id="textoGuardado"></textarea>
+<div id="conectar" onclick="conectar12()"> <h3>conectar</h3></div>
+<div id="crear1" onclick="crear12()"><h3>crear</h3></div>
+</div>
+<script>
+	function guardarTexto() {
+		var texto = document.getElementById("texto").value;
+		localStorage.setItem("miTexto", texto);
+		alert("Texto guardado correctamente.");
+	}
+	function recuperarTexto() {
+		var texto = localStorage.getItem("miTexto");
+		if (texto === null) {
+			alert("No se ha guardado ningún texto anteriormente.");
+		} else {
+			document.getElementById("textoGuardado").innerHTML = texto;
+		}
+	}
+	function borrarTexto() {
+		localStorage.removeItem("miTexto");
+		alert("Texto borrado correctamente.");
+	}
+</script>
+
+</div>
+<div class="section2">
+	<div id="mensaje"> </div>
+</div>
+<aside>
+	<div id="codigo1" >
+<span class="codigo11"> usuario1 </span>
+<span id="codigo11"> contraseña: </span>
+	</div>
+</aside>
+
+</body>
+
+<script>
+function mostrarOcultar() {
+  var cuadro = document.getElementById("section123");
+	var texto11 = document.getElementById("texto1");
+	var almacenamiento11 = document.getElementById("section1234");
+  if (cuadro.style.display === "none") {
+  cuadro.style.display = "block";
+	texto11.style.display = "none";
+	almacenamiento11.style.display = "none";
+  } else {
+    cuadro.style.display = "none";
+  }
+  }
+
+function usuario() {
+	var usuario1 = document.getElementById("section123");
+	   usuario1.style.display = "none";
+	var texto1 = document.getElementById("texto1");
+    	texto1.style.display = "block";}
+function almacenamiento() {
+	var almacenamiento12 = document.getElementById("section123");
+	    almacenamiento12.style.display = "none";
+		var almacenamiento1 = document.getElementById("section1234");
+		almacenamiento1.style.display = "block";
+	}
+	function crear() {
+		var almacenamiento12 = document.getElementById("section123");
+		    almacenamiento12.style.display = "none";
+			var almacenamiento1 = document.getElementById("section1234");
+			almacenamiento1.style.display = "block";
+}
+function crear12() {
+let codigo=	prompt("crea el codigo");
+var codigo12= document.getElementById("codigo1");
+		codigo12.style.display = "block";
+		document.getElementById("codigo11").innerHTML = "contraseña: " + codigo;		
+}
+
+
+
+</script>
+</html>
